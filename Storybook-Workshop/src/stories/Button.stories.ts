@@ -7,7 +7,7 @@ export default {
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
-  },
+  }
 } as Meta;
 
 const Template: Story<Button> = (args: Button) => ({

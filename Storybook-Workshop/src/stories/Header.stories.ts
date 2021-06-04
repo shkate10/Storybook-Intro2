@@ -1,4 +1,4 @@
-import { moduleMetadata } from '@storybook/angular';
+import { componentWrapperDecorator, moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
@@ -14,6 +14,7 @@ export default {
       declarations: [Button],
       imports: [CommonModule],
     }),
+    componentWrapperDecorator((story) => `<div style="margin: 3em">${story}</div>`)
   ],
 } as Meta;
 
@@ -28,3 +29,9 @@ LoggedIn.args = {
 
 export const LoggedOut = Template.bind({});
 LoggedOut.args = {};
+LoggedOut.decorators = [
+  moduleMetadata({
+    declarations: [Header],
+  }),
+  componentWrapperDecorator(Header),
+];

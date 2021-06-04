@@ -1,5 +1,7 @@
 <p-button [label]="label"
           [styleClass]="'p-button-' + type"
           [disabled]="disabled"
+          [ngClass]="classes"
+          [style]="{ 'background': backgroundColor }"
           (onClick)="onClick()">
 </p-button>
