@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Storybook-Workshop';
+
+  // tslint:disable-next-line:typedef
+  handleClick() {
+    window.alert('Clicked Button');
+  }
 }
