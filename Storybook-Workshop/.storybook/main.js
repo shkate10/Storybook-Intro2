@@ -11,7 +11,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "storybook-addon-designs",
     "@storybook/addon-measure",
-    "storybook-addon-pseudo-states",
-    '@storybook/addon-a11y'
+    "storybook-addon-pseudo-states"
+    // '@storybook/addon-a11y'
   ]
 }

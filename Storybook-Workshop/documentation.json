@@ -182,7 +182,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-9a39a0eb7ee234bb6cb57263da6b114a-1",
+            "id": "component-ButtonComponent-41dffcfcb0fa283f4c6344892dd58bd4-1",
             "file": "src/app/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -211,7 +211,7 @@
                 },
                 {
                     "name": "label",
-                    "defaultValue": "''",
+                    "defaultValue": "[]",
                     "line": 13
                 },
                 {
@@ -249,7 +249,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n\n  @Input() type = 'primary';\n  @Input() primary = false;\n  @Input() label = '';\n  @Input() disabled = false;\n  @Input() backgroundColor?: string;\n  // tslint:disable-next-line:no-output-native\n  @Output() click = new EventEmitter<void>();\n\n  get classes(): string {\n    return this.primary ? 'p-button-primary' : 'p-button-secondary';\n  }\n\n  onClick(): void {\n    this.click.emit();\n  }\n\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n\n  @Input() type = 'primary';\n  @Input() primary = false;\n  @Input() label = [];\n  @Input() disabled = false;\n  @Input() backgroundColor?: string;\n  // tslint:disable-next-line:no-output-native\n  @Output() click = new EventEmitter<void>();\n\n  get classes(): string {\n    return this.primary ? 'p-button-primary' : 'p-button-secondary';\n  }\n\n  onClick(): void {\n    this.click.emit();\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -629,14 +629,6 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "PrimaryWithLink",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/button/button.component.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -679,17 +671,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+                "file": "src/stories/Header.stories.ts",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                "file": "src/stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -731,14 +723,6 @@
                 },
                 {
                     "name": "PrimaryBold",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/button/button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "PrimaryWithLink",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/components/button/button.component.stories.ts",
@@ -968,16 +952,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "PrimaryBold",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "PrimaryWithLink",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

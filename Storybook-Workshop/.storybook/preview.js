@@ -28,16 +28,16 @@ export const parameters = {
   },
   // This will change the position of the story: centered, padded or fullscreen
   // layout: 'centered',
-  a11y: {
-    config: {
-      rules: [
-        {
-          // To disable a rule across all stories, set `enabled` to `false`.
-          // Use with caution: all violations of this rule will be ignored!
-          id: 'autocomplete-valid',
-          enabled: false,
-        },
-      ],
-    },
-  },
+  // a11y: {
+  //   config: {
+  //     rules: [
+  //       {
+  //         // To disable a rule across all stories, set `enabled` to `false`.
+  //         // Use with caution: all violations of this rule will be ignored!
+  //         id: 'autocomplete-valid',
+  //         enabled: false,
+  //       },
+  //     ],
+  //   },
+  // },
 }
