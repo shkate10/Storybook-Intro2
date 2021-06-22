@@ -31,7 +31,7 @@ export default {
     // componentWrapperDecorator((story) => `<div class="storybook-component-wrapper">${story}</div>`)
   ],
 
-  // Uncomment to set the backrground parameter on a component level
+  // Uncomment to set the background parameter on a component level
 
   // parameters: {
   //   backgrounds: {
