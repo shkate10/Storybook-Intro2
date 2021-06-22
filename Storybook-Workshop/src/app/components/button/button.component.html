@@ -1,6 +1,5 @@
-<p-button [styleClass]="'p-button-' + type"
-          [disabled]="disabled"
-          [ngClass]="classes"
+<p-button [disabled]="disabled"
+          [styleClass]="classes"
           [style]="{ 'background': backgroundColor }"
           (onClick)="onClick()">
   <ng-template [ngIf]="label === 'Italic'">

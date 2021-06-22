@@ -140,7 +140,6 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Italic',
   primary: false,
-  type: 'secondary',
   onClick: () => {
     window.alert('Secondary Clicked');
   }

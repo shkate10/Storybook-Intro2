@@ -8,7 +8,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class ButtonComponent {
 
-  @Input() type = 'primary';
+  // @Input() type = 'primary';
   @Input() primary = false;
   @Input() label = [];
   @Input() disabled = false;

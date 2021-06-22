@@ -1,12 +1,16 @@
 import { Meta, Story, Canvas, ArgsTable, Props, stories } from '@storybook/addon-docs/blocks';
 import {ButtonComponent} from './button.component';
 import { moduleMetadata } from '@storybook/angular';
+import {ButtonModule} from "primeng/button";
 
-<Meta title='Components/ExamplePage' decorators={[
-  moduleMetadata({
-    declarations: [ButtonComponent]
-  })
-]} />
+<Meta title='Components/ExamplePage'
+      component={ButtonComponent}
+      decorators={[
+        moduleMetadata({
+          imports: [ButtonModule]
+        })
+      ]}
+/>
 
 # Button
 <p> Description </p>
@@ -16,3 +20,33 @@ import { moduleMetadata } from '@storybook/angular';
 
 ## Props
 <Props of={ButtonComponent} />
+
+### Story without Template binding
+<Canvas>
+<Story name='basic' height='400px'>{{
+  component: ButtonComponent,
+  props: {
+  label: 'Italic'
+  },
+}}</Story>
+<Story name='basic2' height='400px'>{{
+  component: ButtonComponent,
+  props: {
+  label: 'Bold',
+  disabled: true
+  },
+}}</Story>
+</Canvas>
+
+### Story with Template binding
+
+export const Template = (args) => <app-button {...args } />
+
+<Canvas>
+  <Story name="Bold" args={{
+    label: 'Bold',
+    type: 'secondary'
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -7,11 +7,11 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    "@storybook/addon-links",
+    // "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "storybook-addon-designs",
-    "@storybook/addon-measure",
-    "storybook-addon-pseudo-states"
+    // "storybook-addon-designs",
+    // "@storybook/addon-measure",
+    // "storybook-addon-pseudo-states"
     // '@storybook/addon-a11y'
   ]
 }
