@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './components/button/button.component';
 import { ButtonModule } from 'primeng/button';
+import { ParentWrapperComponent } from './components/parent-wrapper/parent-wrapper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonComponent
+    ButtonComponent,
+    ParentWrapperComponent
   ],
   imports: [
     BrowserModule,

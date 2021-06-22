@@ -1,0 +1,18 @@
+import { Meta, Story, Canvas, ArgsTable, Props, stories } from '@storybook/addon-docs/blocks';
+import {ButtonComponent} from './button.component';
+import { moduleMetadata } from '@storybook/angular';
+
+<Meta title='Components/ExamplePage' decorators={[
+  moduleMetadata({
+    declarations: [ButtonComponent]
+  })
+]} />
+
+# Button
+<p> Description </p>
+
+## ArgsTable
+<ArgsTable of={ButtonComponent} />
+
+## Props
+<Props of={ButtonComponent} />

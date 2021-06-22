@@ -1,7 +1,16 @@
-<p-button [label]="label"
-          [styleClass]="'p-button-' + type"
+<p-button [styleClass]="'p-button-' + type"
           [disabled]="disabled"
           [ngClass]="classes"
           [style]="{ 'background': backgroundColor }"
           (onClick)="onClick()">
+  <ng-template [ngIf]="label === 'Italic'">
+    <i>{{label}}</i>
+  </ng-template>
+  <ng-template [ngIf]="label === 'Bold'">
+    <strong>{{label}}</strong>
+  </ng-template>
+
+  <ng-template [ngIf]="label === 'Normal'">
+    <label>{{label}}</label>
+  </ng-template>
 </p-button>

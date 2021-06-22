@@ -97,7 +97,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<app-button [label]=\"'Click me'\"\n            [type]=\"'secondary'\"\n            (click)=\"handleClick()\">\n</app-button>\n"
+            "templateData": "<!--<app-button [label]=\"'Bold'\"-->\n<!--            [type]=\"'secondary'\"-->\n<!--            (click)=\"handleClick()\">-->\n<!--</app-button>-->\n"
         },
         {
             "name": "ButtonComponent",
@@ -182,7 +182,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-8c8db05af086b4aa9c1d297888943f7a-1",
+            "id": "component-ButtonComponent-9a39a0eb7ee234bb6cb57263da6b114a-1",
             "file": "src/app/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -200,13 +200,23 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "backgroundColor",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
                     "name": "disabled",
                     "defaultValue": "false",
-                    "line": 13
+                    "line": 14
                 },
                 {
                     "name": "label",
                     "defaultValue": "''",
+                    "line": 13
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
                     "line": 12
                 },
                 {
@@ -219,7 +229,7 @@
                 {
                     "name": "click",
                     "defaultValue": "new EventEmitter<void>()",
-                    "line": 14,
+                    "line": 17,
                     "type": "EventEmitter"
                 }
             ],
@@ -231,7 +241,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 16
+                    "line": 23
                 }
             ],
             "hostBindings": [],
@@ -239,19 +249,30 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n\n  @Input() type = 'primary';\n  @Input() label = '';\n  @Input() disabled = false;\n  @Output() click = new EventEmitter<void>();\n\n  onClick(): void {\n    this.click.emit();\n  }\n\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n\n  @Input() type = 'primary';\n  @Input() primary = false;\n  @Input() label = '';\n  @Input() disabled = false;\n  @Input() backgroundColor?: string;\n  // tslint:disable-next-line:no-output-native\n  @Output() click = new EventEmitter<void>();\n\n  get classes(): string {\n    return this.primary ? 'p-button-primary' : 'p-button-secondary';\n  }\n\n  onClick(): void {\n    this.click.emit();\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "::ng-deep {\n  .p-button {\n    background-color: red;\n  }\n}\n",
+                    "data": "::ng-deep {\n  .storybook-component-wrapper {\n    margin: 3em;\n\n    .p-button {\n      color: #333333;\n    }\n  }\n}\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
             "stylesData": "",
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 19
+                    }
+                }
+            },
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ButtonComponent-1",
-            "templateData": "<p-button [label]=\"label\"\n          [styleClass]=\"'p-button-' + type\"\n          [disabled]=\"disabled\"\n          (onClick)=\"onClick()\">\n</p-button>\n"
+            "templateData": "<p-button [styleClass]=\"'p-button-' + type\"\n          [disabled]=\"disabled\"\n          [ngClass]=\"classes\"\n          [style]=\"{ 'background': backgroundColor }\"\n          (onClick)=\"onClick()\">\n  <ng-template [ngIf]=\"label === 'Italic'\">\n    <i>{{label}}</i>\n  </ng-template>\n  <ng-template [ngIf]=\"label === 'Bold'\">\n    <strong>{{label}}</strong>\n  </ng-template>\n\n  <ng-template [ngIf]=\"label === 'Normal'\">\n    <label>{{label}}</label>\n  </ng-template>\n</p-button>\n"
         },
         {
             "name": "HeaderComponent",
@@ -376,6 +397,62 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "ParentWrapperComponent",
+            "id": "component-ParentWrapperComponent-88e0ce4af4391516f00aa21820a7c9c3",
+            "file": "src/app/components/parent-wrapper/parent-wrapper.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-parent-wrapper",
+            "styleUrls": [
+                "./parent-wrapper.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./parent-wrapper.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-parent-wrapper',\n  templateUrl: './parent-wrapper.component.html',\n  styleUrls: ['./parent-wrapper.component.scss']\n})\nexport class ParentWrapperComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./parent-wrapper.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-content></ng-content>\n"
         }
     ],
     "modules": [
@@ -391,6 +468,9 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "ParentWrapperComponent"
                         }
                     ]
                 },
@@ -458,7 +538,7 @@
                 "subtype": "variable",
                 "file": "src/app/components/button/button.component.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\n  component: ButtonComponent,\n  props: {\n    label: 'Button with configured icon',\n    onClick: () => alert('Button clicked!')\n  }\n})"
+                "defaultValue": "() => ({\n  component: ButtonComponent,\n  props: {\n    label: 'Button with configured icon',\n    onClick: linkTo('Components/Button', 'Secondary')\n  }\n})"
             },
             {
                 "name": "context",
@@ -534,6 +614,22 @@
             },
             {
                 "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "PrimaryBold",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "PrimaryWithLink",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/components/button/button.component.stories.ts",
@@ -623,10 +719,26 @@
                     "subtype": "variable",
                     "file": "src/app/components/button/button.component.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\n  component: ButtonComponent,\n  props: {\n    label: 'Button with configured icon',\n    onClick: () => alert('Button clicked!')\n  }\n})"
+                    "defaultValue": "() => ({\n  component: ButtonComponent,\n  props: {\n    label: 'Button with configured icon',\n    onClick: linkTo('Components/Button', 'Secondary')\n  }\n})"
                 },
                 {
                     "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "PrimaryBold",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "PrimaryWithLink",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/components/button/button.component.stories.ts",
@@ -809,7 +921,7 @@
         ]
     },
     "coverage": {
-        "count": 3,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -855,6 +967,26 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "PrimaryBold",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PrimaryWithLink",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Secondary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -886,7 +1018,16 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/parent-wrapper/parent-wrapper.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ParentWrapperComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
