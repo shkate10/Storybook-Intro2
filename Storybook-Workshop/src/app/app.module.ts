@@ -8,19 +8,25 @@ import { ButtonModule } from 'primeng/button';
 import { ParentWrapperComponent } from './components/parent-wrapper/parent-wrapper.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { BadgeModule } from 'primeng/badge';
+import { MultiselectComponent } from './components/multiselect/multiselect.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     ParentWrapperComponent,
-    BadgeComponent
+    BadgeComponent,
+    MultiselectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
-    BadgeModule
+    BadgeModule,
+    MultiSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
