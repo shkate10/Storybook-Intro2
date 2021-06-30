@@ -1,7 +1,8 @@
 import { Meta, Story, Canvas, ArgsTable, Props, stories } from '@storybook/addon-docs/blocks';
-import {ButtonComponent} from './button.component';
 import { moduleMetadata } from '@storybook/angular';
-import {ButtonModule} from "primeng/button";
+
+import { ButtonComponent } from './button.component';
+import { ButtonModule } from "primeng/button";
 
 <Meta title='Components/ExamplePage'
       component={ButtonComponent}
@@ -10,6 +11,29 @@ import {ButtonModule} from "primeng/button";
           imports: [ButtonModule]
         })
       ]}
+      parameters={{backgrounds: {
+                       values: [
+                         {name: 'red', value: '#f00'},
+                         {name: 'green', value: '#0f0'},
+                       ],
+                     }}}
+      argTypes = {{
+        backgroundColor: {control: 'color'},
+        label: {
+          name: 'Label style',
+          description: 'lorem ipsum sit amet',
+          options: ['Normal', 'Bold', 'Italic'],
+          table: {
+            defaultValue: {
+             summary: 'Italic',
+             detail: 'Text displayed by the Badge'
+            }
+          },
+          control: {
+            type: 'select'
+          }
+        }
+      }}
 />
 
 # Button
@@ -18,25 +42,8 @@ import {ButtonModule} from "primeng/button";
 ## ArgsTable
 <ArgsTable of={ButtonComponent} />
 
-## Props
-<Props of={ButtonComponent} />
-
-### Story without Template binding
-<Canvas>
-<Story name='basic' height='400px'>{{
-  component: ButtonComponent,
-  props: {
-  label: 'Italic'
-  },
-}}</Story>
-<Story name='basic2' height='400px'>{{
-  component: ButtonComponent,
-  props: {
-  label: 'Bold',
-  disabled: true
-  },
-}}</Story>
-</Canvas>
+<!-- ## Props -->
+<!-- <Props of={ButtonComponent} /> -->
 
 ### Story with Template binding
 
@@ -46,7 +53,16 @@ export const Template = (args) => <app-button {...args } />
   <Story name="Bold" args={{
     label: 'Bold',
     type: 'secondary'
-  }}>
+  }}
+  parameters={{backgrounds: {
+                         values: [
+                           {name: 'red', value: '#f00'},
+                           {name: 'green', value: '#0f0'},
+                         ],
+                       }}}
+  >
     {Template.bind({})}
   </Story>
 </Canvas>
+
+<Story id='components-button--secondary-disabled'/>

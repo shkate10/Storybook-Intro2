@@ -97,7 +97,55 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<!--<app-button [label]=\"'Bold'\"-->\n<!--            [type]=\"'secondary'\"-->\n<!--            (click)=\"handleClick()\">-->\n<!--</app-button>-->\n"
+            "templateData": "<!--<app-button [label]=\"'Bold'\"-->\n<!--            [type]=\"'secondary'\"-->\n<!--            (click)=\"handleClick()\">-->\n<!--</app-button>-->\n<app-badge [value]=\"3\"></app-badge>\n"
+        },
+        {
+            "name": "BadgeComponent",
+            "id": "component-BadgeComponent-f88aa672c96d4304a700bf055fb1fb26",
+            "file": "src/app/components/badge/badge.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-badge",
+            "styleUrls": [
+                "./badge.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./badge.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "severity",
+                    "defaultValue": "'success'",
+                    "line": 10
+                },
+                {
+                    "name": "value",
+                    "line": 9
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-badge',\n  templateUrl: './badge.component.html',\n  styleUrls: ['./badge.component.scss']\n})\nexport class BadgeComponent {\n  @Input() value;\n  @Input() severity = 'success';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./badge.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<p-badge [value]=\"value\"\n         [severity]=\"severity\">\n</p-badge>\n"
         },
         {
             "name": "ButtonComponent",
@@ -182,7 +230,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-41dffcfcb0fa283f4c6344892dd58bd4-1",
+            "id": "component-ButtonComponent-701c9611e6d342502e19a0a55125c14d-1",
             "file": "src/app/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -201,35 +249,35 @@
             "inputsClass": [
                 {
                     "name": "backgroundColor",
-                    "line": 15,
+                    "line": 16,
                     "type": "string"
                 },
                 {
                     "name": "disabled",
                     "defaultValue": "false",
-                    "line": 14
+                    "line": 15
+                },
+                {
+                    "name": "id",
+                    "defaultValue": "''",
+                    "line": 12
                 },
                 {
                     "name": "label",
-                    "defaultValue": "[]",
-                    "line": 13
+                    "defaultValue": "''",
+                    "line": 14
                 },
                 {
                     "name": "primary",
                     "defaultValue": "false",
-                    "line": 12
-                },
-                {
-                    "name": "type",
-                    "defaultValue": "'primary'",
-                    "line": 11
+                    "line": 13
                 }
             ],
             "outputsClass": [
                 {
                     "name": "click",
                     "defaultValue": "new EventEmitter<void>()",
-                    "line": 17,
+                    "line": 18,
                     "type": "EventEmitter"
                 }
             ],
@@ -241,7 +289,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23
+                    "line": 24
                 }
             ],
             "hostBindings": [],
@@ -249,7 +297,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n\n  @Input() type = 'primary';\n  @Input() primary = false;\n  @Input() label = [];\n  @Input() disabled = false;\n  @Input() backgroundColor?: string;\n  // tslint:disable-next-line:no-output-native\n  @Output() click = new EventEmitter<void>();\n\n  get classes(): string {\n    return this.primary ? 'p-button-primary' : 'p-button-secondary';\n  }\n\n  onClick(): void {\n    this.click.emit();\n  }\n\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n\n  // @Input() type = 'primary';\n  @Input() id = '';\n  @Input() primary = false;\n  @Input() label = '';\n  @Input() disabled = false;\n  @Input() backgroundColor?: string;\n  // tslint:disable-next-line:no-output-native\n  @Output() click = new EventEmitter<void>();\n\n  get classes(): string {\n    return this.primary ? 'p-button-primary' : 'p-button-secondary';\n  }\n\n  onClick(): void {\n    this.click.emit();\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -265,14 +313,14 @@
                         "name": "classes",
                         "type": "string",
                         "returnType": "string",
-                        "line": 19
+                        "line": 20
                     }
                 }
             },
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ButtonComponent-1",
-            "templateData": "<p-button [styleClass]=\"'p-button-' + type\"\n          [disabled]=\"disabled\"\n          [ngClass]=\"classes\"\n          [style]=\"{ 'background': backgroundColor }\"\n          (onClick)=\"onClick()\">\n  <ng-template [ngIf]=\"label === 'Italic'\">\n    <i>{{label}}</i>\n  </ng-template>\n  <ng-template [ngIf]=\"label === 'Bold'\">\n    <strong>{{label}}</strong>\n  </ng-template>\n\n  <ng-template [ngIf]=\"label === 'Normal'\">\n    <label>{{label}}</label>\n  </ng-template>\n</p-button>\n"
+            "templateData": "<p-button [disabled]=\"disabled\"\n          [id]=\"id\"\n          [styleClass]=\"classes\"\n          [style]=\"{ 'background': backgroundColor }\"\n          (onClick)=\"onClick()\">\n  <ng-template [ngIf]=\"label === 'Italic'\">\n    <i>{{label}}</i>\n  </ng-template>\n  <ng-template [ngIf]=\"label === 'Bold'\">\n    <strong>{{label}}</strong>\n  </ng-template>\n\n  <ng-template [ngIf]=\"label === 'Normal'\">\n    <label>{{label}}</label>\n  </ng-template>\n</p-button>\n"
         },
         {
             "name": "HeaderComponent",
@@ -468,6 +516,9 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "BadgeComponent"
                         },
                         {
                             "name": "ParentWrapperComponent"
@@ -668,6 +719,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "simpleInfoBadge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/badge/badge.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -705,6 +764,14 @@
                 "subtype": "variable",
                 "file": "src/app/components/button/button.component.stories.ts",
                 "type": "Story<ButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/badge/badge.component.stories.ts",
+                "type": "Story<BadgeComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
             }
         ],
@@ -900,6 +967,24 @@
                     "type": "Story<Page>",
                     "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
+            ],
+            "src/app/components/badge/badge.component.stories.ts": [
+                {
+                    "name": "simpleInfoBadge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/badge/badge.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/badge/badge.component.stories.ts",
+                    "type": "Story<BadgeComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -938,6 +1023,35 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/badge/badge.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "simpleInfoBadge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/badge/badge.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/badge/badge.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BadgeComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"

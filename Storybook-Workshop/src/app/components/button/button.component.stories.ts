@@ -48,6 +48,9 @@ export default {
       mapping: {
         Bold: 'Bold',
         Italic: 'Italic'
+      },
+      control: {
+        type: 'select'
       }
     }
   },

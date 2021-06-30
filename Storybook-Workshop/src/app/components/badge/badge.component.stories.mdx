@@ -1,0 +1,67 @@
+import { Meta, Story, Canvas, ArgsTable, stories } from '@storybook/addon-docs/blocks';
+import { moduleMetadata } from '@storybook/angular';
+
+import { BadgeComponent } from './badge.component';
+import { BadgeModule } from 'primeng/badge';
+
+<Meta title='Components/BadgeDoc'
+      argTypes={{
+        value: {
+          name: 'Value',
+          control: {
+            type: 'text'
+          },
+          table: {
+            defaultValue: {
+              summary: 'Bold'
+            },
+            type: {
+              summary: 'Shows options to the Badge',
+              detail: 'Listing of available options'
+            },
+          },
+        },
+        severity: {
+          name: 'Severity',
+          options: [
+            'info',
+            'success',
+            'danger',
+            'warning'
+          ],
+          control: {
+            type: 'select'
+          },
+          table: {
+            defaultValue: {
+              summary: 'danger'
+            },
+            type: {
+              summary: 'Shows options to the Badge',
+              detail: 'Bold'
+            },
+          },
+        }
+      }}
+      component={BadgeComponent}
+      decorators={[
+       moduleMetadata({
+         imports: [BadgeModule]
+       })
+      ]}
+/>
+
+## ArgsTable
+<ArgsTable of={BadgeComponent} />
+
+## Badge Story
+export const Template = (args) => <app-badge {...args } />
+
+<Canvas>
+  <Story name="Badge" args={{
+    value: 'Bold',
+    severity: 'danger'
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

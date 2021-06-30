@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
     "@storybook/addon-a11y": "^6.2.9",
+    "@storybook/addon-docs": "^6.3.0",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primeng": "11.4.2",

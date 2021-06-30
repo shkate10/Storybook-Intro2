@@ -9,8 +9,9 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class ButtonComponent {
 
   // @Input() type = 'primary';
+  @Input() id = '';
   @Input() primary = false;
-  @Input() label = [];
+  @Input() label = '';
   @Input() disabled = false;
   @Input() backgroundColor?: string;
   // tslint:disable-next-line:no-output-native
